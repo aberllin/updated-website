@@ -41,12 +41,13 @@ const portfolioData: portfolioTypes = [
 ];
 
 export const Portfolio = () => {
+  document.title = "Aberllin: Portfolio";
   return (
     <Window>
       {portfolioData.map(
         ({ title, image, description, alt, demoLink, githubLink }) => {
           return (
-            <Wrapper>
+            <Wrapper key={title}>
               <InfoWrapper>
                 <Title>{title}</Title>
                 <Description>{description}</Description>
@@ -56,7 +57,9 @@ export const Portfolio = () => {
                   <Link href={demoLink}>Demo</Link>
                   <Link href={githubLink}>GitHub</Link>
                 </Links>
-                <Image src={image} alt={alt} />
+                <a href={demoLink}>
+                  <Image src={image} alt={alt} />
+                </a>
               </ProjectWrapper>
             </Wrapper>
           );
@@ -70,6 +73,10 @@ const Link = styled.a`
   color: white;
   transition: ease 0.2s;
   padding: 10px;
+
+  @media screen and (max-width: 1024px) {
+    padding: 15px 20px;
+  }
 
   &:hover {
     color: #1ccbb1;
@@ -92,6 +99,18 @@ const ProjectWrapper = styled.div`
   animation-duration: 1s;
   animation-fill-mode: forwards;
   
+
+  @media screen and (max-width: 1024px) {
+    padding: 90px 0 90px 45px;
+
+  }
+
+  @media screen and (max-width: 768px) {
+    align-items: center;
+    border: none;
+    flex-direction: column-reverse;
+    padding: 40px 0;
+  }
 
   @keyframes fadeInFromNone {
     0% {
@@ -116,6 +135,14 @@ const Description = styled.div`
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 14px;
+  }
 `;
 
 const Image = styled.img`
@@ -127,6 +154,13 @@ const Image = styled.img`
 const Title = styled.div`
   font-size: 30px;
   font-weight: bold;
+  @media screen and (max-width: 1024px) {
+    font-size: 37px;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 20px;
+  }
 `;
 
 const InfoWrapper = styled.div`
@@ -134,6 +168,17 @@ const InfoWrapper = styled.div`
   flex-direction: column;
   padding-right: 50px;
   max-width: 600px;
+
+  @media screen and (max-width: 1024px) {
+    padding-right: 30px;
+    max-width: 400px;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    text-align: center;
+    padding-right: 0;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -145,4 +190,19 @@ const Wrapper = styled.div`
   margin: auto;
   padding-top: 100px;
   font-family: "Raleway", sans-serif;
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding-top: 150px;
+    overflow: auto;
+  }
+
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+    padding-top: 120px;
+  }
 `;

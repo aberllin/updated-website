@@ -2,12 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { FooterLinks } from "./FooterLinks";
 import { MainContent } from "./MainContent";
-import { Navbar } from "./navbar_items/Navbar";
 
 export const Home = () => {
+  document.title = "Aberllin: Home";
   return (
     <Container>
-      <Navbar />
       <MainContent />
       <FooterLinks />
     </Container>

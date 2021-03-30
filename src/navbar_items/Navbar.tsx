@@ -6,6 +6,7 @@ import { Resources } from "./Resources";
 import { Portfolio } from "./Portfolio";
 import { HiMenu } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
+import { Home } from "../Home";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -14,29 +15,43 @@ export const Navbar = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
+  const currentPath = window.location.pathname;
+  const isSelected = (path: string) => currentPath.split("/")[1] === path;
+
   return (
     <>
       <Menu onClick={handleMenuOpen}>
         {!isMenuOpen ? <HiMenu /> : <IoMdClose />}
       </Menu>
       <NavbarWrapper isMenuOpen={isMenuOpen}>
-        <StyledLink to='/'>.home()</StyledLink>
-        <StyledLink to='/portfolio'>.portfolio()</StyledLink>
-        <StyledLink to='/blog'>.blog()</StyledLink>
-        <StyledLink to='/resources'>.resources()</StyledLink>
-        <Switch>
-          <Route path='/portfolio'>
-            <Portfolio />
-          </Route>
-          <Route path='/blog'>
-            <Blog />
-          </Route>
-          <Route path='/resources'>
-            <Resources />
-          </Route>
-          <Route path='/'></Route>
-        </Switch>
+        <StyledLink to='/' selected={isSelected("")}>
+          .home()
+        </StyledLink>
+        <StyledLink to='/portfolio' selected={isSelected("portfolio")}>
+          .portfolio()
+        </StyledLink>
+        <StyledLink to='/blog' selected={isSelected("blog")}>
+          .blog()
+        </StyledLink>
+        <StyledLink to='/resources' selected={isSelected("resources")}>
+          .resources()
+        </StyledLink>
       </NavbarWrapper>
+
+      <Switch>
+        <Route path='/portfolio'>
+          <Portfolio />
+        </Route>
+        <Route path='/blog'>
+          <Blog />
+        </Route>
+        <Route path='/resources'>
+          <Resources />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
+      </Switch>
     </>
   );
 };
@@ -71,7 +86,7 @@ const NavbarWrapper = styled.div<{ isMenuOpen: boolean }>`
   align-items: center;
   position: sticky;
   top: 0;
-  padding: 40px 0;
+  padding: 40px 50px;
   z-index: 1000;
 
   @media screen and (max-width: 1024px) {
@@ -107,11 +122,11 @@ const NavbarWrapper = styled.div<{ isMenuOpen: boolean }>`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link)<{ selected: boolean }>`
   padding: 0 20px 0 0;
   transition: all 0.2s ease-in-out;
   position: relative;
-  color: white;
+  color: ${(props) => (props.selected ? "#1ccbb1" : "white")};
   text-decoration: none;
 
   &:hover {

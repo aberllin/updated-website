@@ -14,8 +14,6 @@ export const Window = ({ children }: Props) => {
 };
 
 const WindowWrapper = styled.div`
-  position: fixed;
-  z-index: 2;
   left: 0;
   bottom: 0;
   width: 100%;

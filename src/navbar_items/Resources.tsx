@@ -1,5 +1,20 @@
 import React from "react";
+import { Window } from "../common/Window";
+import styled from "styled-components";
 
 export const Resources = () => {
-  return <div>Blog</div>;
+  document.title = "Aberllin: Resources";
+  return (
+    <Window>
+      <Text>Cooming soon...</Text>
+    </Window>
+  );
 };
+
+const Text = styled.div`
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
