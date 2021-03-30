@@ -15,25 +15,22 @@ export const Navbar = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
-  const currentPath = window.location.pathname;
-  const isSelected = (path: string) => currentPath.split("/")[1] === path;
-
   return (
     <>
       <Menu onClick={handleMenuOpen}>
         {!isMenuOpen ? <HiMenu /> : <IoMdClose />}
       </Menu>
       <NavbarWrapper isMenuOpen={isMenuOpen}>
-        <StyledLink to='/' selected={isSelected("")}>
+        <StyledLink to='/' onClick={() => setIsMenuOpen(false)}>
           .home()
         </StyledLink>
-        <StyledLink to='/portfolio' selected={isSelected("portfolio")}>
+        <StyledLink to='/portfolio' onClick={() => setIsMenuOpen(false)}>
           .portfolio()
         </StyledLink>
-        <StyledLink to='/blog' selected={isSelected("blog")}>
+        <StyledLink to='/blog' onClick={() => setIsMenuOpen(false)}>
           .blog()
         </StyledLink>
-        <StyledLink to='/resources' selected={isSelected("resources")}>
+        <StyledLink to='/resources' onClick={() => setIsMenuOpen(false)}>
           .resources()
         </StyledLink>
       </NavbarWrapper>
@@ -69,6 +66,11 @@ const Menu = styled.div`
     font-size: 1.8rem;
     cursor: pointer;
     z-index: 100;
+  }
+
+  @media screen and (max-width: 400px) {
+    top: 5px;
+    right: 5px;
   }
 
   @media screen and (max-width: 400px) {
@@ -122,11 +124,11 @@ const NavbarWrapper = styled.div<{ isMenuOpen: boolean }>`
   }
 `;
 
-const StyledLink = styled(Link)<{ selected: boolean }>`
+const StyledLink = styled(Link)`
   padding: 0 20px 0 0;
   transition: all 0.2s ease-in-out;
   position: relative;
-  color: ${(props) => (props.selected ? "#1ccbb1" : "white")};
+  color: white;
   text-decoration: none;
 
   &:hover {

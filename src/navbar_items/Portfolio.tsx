@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Window } from "../common/Window";
 
 type portfolioTypes = {
   title: string;
@@ -43,7 +42,7 @@ const portfolioData: portfolioTypes = [
 export const Portfolio = () => {
   document.title = "Aberllin: Portfolio";
   return (
-    <Window>
+    <>
       {portfolioData.map(
         ({ title, image, description, alt, demoLink, githubLink }) => {
           return (
@@ -65,7 +64,7 @@ export const Portfolio = () => {
           );
         }
       )}
-    </Window>
+    </>
   );
 };
 
@@ -182,6 +181,7 @@ const InfoWrapper = styled.div`
 `;
 
 const Wrapper = styled.div`
+  color: white;
   display: flex;
   flex-direction: row;
   justify-content: center;

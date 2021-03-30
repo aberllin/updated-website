@@ -1,14 +1,9 @@
 import React from "react";
-import { Window } from "../common/Window";
 import styled from "styled-components";
 
 export const Resources = () => {
   document.title = "Aberllin: Resources";
-  return (
-    <Window>
-      <Text>Cooming soon...</Text>
-    </Window>
-  );
+  return <Text>Cooming soon...</Text>;
 };
 
 const Text = styled.div`
@@ -17,4 +12,5 @@ const Text = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
 `;

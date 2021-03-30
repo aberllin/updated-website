@@ -15,6 +15,7 @@ export const Home = () => {
 
 const Container = styled.div`
   margin: 0 50px;
+  overflow: hidden;
 
   @media screen and (max-width: 768px) {
     margin: 0 10px;
