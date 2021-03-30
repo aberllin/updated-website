@@ -16,6 +16,24 @@ export const Home = () => {
 const Container = styled.div`
   margin: 0 50px;
   overflow: hidden;
+  animation-name: fadeInFromNone;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+
+  @keyframes fadeInFromNone {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    1% {
+      display: block;
+      opacity: 0;
+    }
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
 
   @media screen and (max-width: 768px) {
     margin: 0 10px;

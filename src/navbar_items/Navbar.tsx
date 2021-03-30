@@ -21,16 +21,16 @@ export const Navbar = () => {
         {!isMenuOpen ? <HiMenu /> : <IoMdClose />}
       </Menu>
       <NavbarWrapper isMenuOpen={isMenuOpen}>
-        <StyledLink to='/' onClick={() => setIsMenuOpen(false)}>
+        <StyledLink to='/' onClick={handleMenuOpen}>
           .home()
         </StyledLink>
-        <StyledLink to='/portfolio' onClick={() => setIsMenuOpen(false)}>
+        <StyledLink to='/portfolio' onClick={handleMenuOpen}>
           .portfolio()
         </StyledLink>
-        <StyledLink to='/blog' onClick={() => setIsMenuOpen(false)}>
+        <StyledLink to='/blog' onClick={handleMenuOpen}>
           .blog()
         </StyledLink>
-        <StyledLink to='/resources' onClick={() => setIsMenuOpen(false)}>
+        <StyledLink to='/resources' onClick={handleMenuOpen}>
           .resources()
         </StyledLink>
       </NavbarWrapper>

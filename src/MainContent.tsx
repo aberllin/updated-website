@@ -20,11 +20,10 @@ export const MainContent = () => {
           Look at my CV by clicking the button below. Read my blog and grab
           resources that I had been used on my way to becoming developer.
         </About>
-        <button className='cv-btn'>
-          <a href='/CV.pdf' target='_blank'>
-            Download CV
-          </a>
-        </button>
+
+        <a href='/CV.pdf'>
+          <button className='cv-btn'>Download CV</button>
+        </a>
       </SecondBlock>
     </Wrapper>
   );

@@ -1,23 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { AiFillGithub } from "react-icons/ai";
-import { FiInstagram } from "react-icons/fi";
+import { SiGmail } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa";
 import { AiOutlineTwitter } from "react-icons/ai";
 
 export const FooterLinks = () => {
   return (
     <Wrapper>
-      <Link href='https://github.com/aberllin' target='_blank'>
+      <Link href='https://github.com/aberllin'>
         <AiFillGithub />
       </Link>
-      <Link href='https://www.instagram.com/ns.kozluk' target='_blank'>
-        <FiInstagram />
+      <Link href='mailto:ns.kozluk@gmail.com'>
+        <SiGmail />
       </Link>
-      <Link
-        href='https://www.linkedin.com/in/anastasia-kozluk-3949301b1/'
-        target='_blank'
-      >
+      <Link href='https://www.linkedin.com/in/anastasia-kozluk-3949301b1/'>
         <FaLinkedinIn />
       </Link>
       <Link href='https://twitter.com/aberllin1'>
@@ -40,7 +37,7 @@ const Wrapper = styled.div`
     bottom: 30px;
   }
   @media screen and (max-width: 400px) {
-    bottom: 0;
+    bottom: 15px;
   }
 `;
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Resources = () => {
   document.title = "Aberllin: Resources";
-  return <Text>Cooming soon...</Text>;
+  return <Text>Coming soon...</Text>;
 };
 
 const Text = styled.div`

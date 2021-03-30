@@ -95,7 +95,7 @@ const ProjectWrapper = styled.div`
   padding: 40px 0 40px 45px;
   border-left: 3px solid #1ccbb1;
   animation-name: fadeInFromNone;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   animation-fill-mode: forwards;
   
 
