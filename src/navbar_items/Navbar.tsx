@@ -44,6 +44,7 @@ export const Navbar = () => {
 const Menu = styled.div`
   display: none;
   color: white;
+
   @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
@@ -53,6 +54,11 @@ const Menu = styled.div`
     font-size: 1.8rem;
     cursor: pointer;
     z-index: 100;
+  }
+
+  @media screen and (max-width: 400px) {
+    top: 5px;
+    right: 5px;
   }
 `;
 
@@ -66,6 +72,7 @@ const NavbarWrapper = styled.div<{ isMenuOpen: boolean }>`
   position: sticky;
   top: 0;
   padding: 40px 0;
+  z-index: 1000;
 
   @media screen and (max-width: 1024px) {
     padding: 30px 0;
@@ -78,8 +85,9 @@ const NavbarWrapper = styled.div<{ isMenuOpen: boolean }>`
     width: 100%;
     height: 200px;
     font-size: 20px;
-    position: absolute;
+    position: fixed;
     top: 0;
+    box-shadow: 5px 5px 20px;
     transition: all 0.3s ease;
 
     ${(props) =>
@@ -88,12 +96,13 @@ const NavbarWrapper = styled.div<{ isMenuOpen: boolean }>`
       background: #1ccbb1;
       left: 0;
       opacity: 1;
+      position: absolute;
       transition: all 0.3s ease;
       z-index: 1;
     `
         : `
     opacity: 1;
-    left: -100%;
+    top: -100%;
     `}
   }
 `;

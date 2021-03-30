@@ -32,9 +32,15 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   position: absolute;
+  z-index: -10;
+
+  bottom: 40px;
 
   @media screen and (max-width: 768px) {
-    bottom: 50px;
+    bottom: 30px;
+  }
+  @media screen and (max-width: 400px) {
+    bottom: 0;
   }
 `;
 
