@@ -8,6 +8,7 @@ type portfolioTypes = {
   githubLink: string;
   alt: string;
   description: JSX.Element;
+  technologies: string;
 }[];
 
 const portfolioData: portfolioTypes = [
@@ -36,6 +37,7 @@ const portfolioData: portfolioTypes = [
         </div>
       </div>
     ),
+    technologies: "React / Styled Components",
   },
 ];
 
@@ -44,7 +46,15 @@ export const Portfolio = () => {
   return (
     <>
       {portfolioData.map(
-        ({ title, image, description, alt, demoLink, githubLink }) => {
+        ({
+          title,
+          image,
+          description,
+          alt,
+          demoLink,
+          githubLink,
+          technologies,
+        }) => {
           return (
             <Wrapper key={title}>
               <InfoWrapper>
@@ -59,6 +69,7 @@ export const Portfolio = () => {
                 <a href={demoLink}>
                   <Image src={image} alt={alt} />
                 </a>
+                <Technologies>{technologies}</Technologies>
               </ProjectWrapper>
             </Wrapper>
           );
@@ -68,10 +79,18 @@ export const Portfolio = () => {
   );
 };
 
+const Technologies = styled.div`
+  padding: 10px;
+
+  @media screen and (max-width: 400px) {
+    font-size: 18px;
+  }
+`;
+
 const Link = styled.a`
   color: white;
   transition: ease 0.2s;
-  padding: 10px;
+  padding: 0 10px;
 
   @media screen and (max-width: 1024px) {
     padding: 15px 20px;
@@ -86,6 +105,11 @@ const Links = styled.div`
   display: flex;
   justify-content: center;
   font-size: 20px;
+  padding: 15px;
+
+  @media screen and (max-width: 1024px) {
+    padding: 0;
+  }
 `;
 
 const ProjectWrapper = styled.div`
@@ -97,6 +121,7 @@ const ProjectWrapper = styled.div`
   animation-name: fadeInFromNone;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
+  align-items: center;
   
 
   @media screen and (max-width: 1024px) {

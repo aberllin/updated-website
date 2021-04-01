@@ -14,11 +14,9 @@ export const MainContent = () => {
           <span style={{ color: "#1ccbb1" }}>'Aberllin'</span>;
         </Name>
         <About>
-          I'm looking for a job as a frontend developer. I want to be a part of
-          nice company and get commercial experience. My goal is to improve my
-          skills and get new as well. Currently working with React (TypeScript).
-          Look at my CV by clicking the button below. Read my blog and grab
-          resources that I had been used on my way to becoming developer.
+          Hi! I'm a frontend developer based in Minsk. Working with React +
+          TypeScript. Believe in the importance of sharing knowledge. In love
+          with humanity. Currently open to new positions.
         </About>
 
         <a href='/CV.pdf'>
